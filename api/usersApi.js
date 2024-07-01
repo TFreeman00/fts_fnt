@@ -2,38 +2,48 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const usersApi = createApi({
   reducerPath: "usersApi",
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_URL || "http://localhost:3000" }),
-  tagTypes: ['User'],
+  baseQuery: fetchBaseQuery({
+    baseUrl: import.meta.env.VITE_URL || "http://localhost:3000",
+  }),
+
   endpoints: (builder) => ({
-    fetchAllUsers: builder.query({
-      query: () => '/users',
-      providesTags: ['User'],
+    getUsers: builder.query({
+      query: ({ token }) => ({
+        url: "/users",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }),
     }),
-    fetchUserById: builder.query({
-      query: (id) => `/users/${id}`,
-      providesTags: (result, error, id) => [{ type: 'User', id }],
+
+    getUser: builder.query({
+      query: ({ id, token }) => ({
+        url: "/users/" + id,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }),
     }),
+
     updateUser: builder.mutation({
-      query: ({ id, ...rest }) => ({
-        url: `/users/${id}`,
-        method: 'PUT',
-        body: rest,
+      query: ({ id, firstname, lastname, password, token }) => ({
+        url: "/users/" + id,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        method: "PUT",
+        body: {
+          firstname,
+          lastname,
+          password,
+        },
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: 'User', id }],
-    }),
-    deleteUser: builder.mutation({
-      query: (id) => ({
-        url: `/users/${id}`,
-        method: 'DELETE',
-      }),
-      invalidatesTags: [{ type: 'User', id: 'LIST' }],
     }),
   }),
 });
 
-export const {
-  useFetchAllUsersQuery,
-  useFetchUserByIdQuery,
-  useUpdateUserMutation,
-  useDeleteUserMutation,
-} = usersApi;
+export const { useGetUsersQuery, useGetUserQuery, useUpdateUserMutation } =
+  usersApi;

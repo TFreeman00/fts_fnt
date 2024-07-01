@@ -1,13 +1,25 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FTS</title>
+  <!-- Include Tailwind CSS from CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="root"></div>
+  <!-- Toggle Button for Dark Mode -->
+  <button id="toggleDarkMode" class="m-4 p-2 bg-gray-200 text-black rounded">Toggle Dark Mode</button>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+    // JavaScript to toggle dark mode
+    const toggleDarkMode = document.getElementById('toggleDarkMode');
+    toggleDarkMode.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      toggleDarkMode.textContent = document.documentElement.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+    });
+  </script>
+</body>
 </html>
