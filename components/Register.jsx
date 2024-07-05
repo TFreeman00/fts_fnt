@@ -21,15 +21,15 @@ export default function Register() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    // if (form.username.length < 5) {
-    //   alert("Username must contain at least 5 characters. Please try again.");
-    //   return false;
-    // }
+    if (form.username.length < 5) {
+      alert("Username must contain at least 5 characters. Please try again.");
+      return false;
+    }
 
-    // if (form.password.length < 8) {
-    //   alert("Password must contain at least 8 characters. Please try again.");
-    //   return false;
-    // }
+    if (form.password.length < 8) {
+      alert("Password must contain at least 8 characters. Please try again.");
+      return false;
+    }
 
     if (form.confirmPassword !== form.password) {
       alert("Password do not match. Please try again.");
@@ -41,17 +41,6 @@ export default function Register() {
   };
 
   return (
-    // <div
-    //   style={{
-    //     backgroundImage: `url('https://i.pinimg.com/originals/43/22/82/432282534bba11b6e9f48690462ccf7b.jpg')`,
-    //     backgroundSize: "cover",
-    //     backgroundPosition: "center",
-    //     minHeight: "100vh",
-    //     display: "flex",
-    //     justifyContent: "center",
-    //     alignItems: "center",
-    //   }}
-    // >
     <div>
       <div
         className="max-w-md w-full mx-4 md:mx-auto p-8 bg-white shadow-md rounded-lg"
