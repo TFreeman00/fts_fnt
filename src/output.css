@@ -1,0 +1,11 @@
+/* Light mode styles */
+body {
+  background-color:#cbd5e1 ;
+  color: #0f172a;
+}
+
+/* Dark mode styles */
+.dark body {
+  background-color: #0f172a;
+  color: #cbd5e1;
+}
