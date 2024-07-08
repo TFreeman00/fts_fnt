@@ -1,4 +1,4 @@
-import { postsApi } from "fts_fnt/api/posts";
+import { postsApi } from "../api/postsApi";
 import { createSlice } from "@reduxjs/toolkit";
 
 const postsSlice = createSlice({

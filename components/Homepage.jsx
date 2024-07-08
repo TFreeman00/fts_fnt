@@ -6,34 +6,24 @@ import HeroSection from "./Hero";
 const HomePage = () => {
   return (
     <div>
-      <HeroSection />{" "}
+      <HeroSection />
+      <section className="communities">
+        <h2>Explore Our Communities</h2>
+        {/* List some communities here */}
+      </section>
+      <section className="popular-discussions">
+        <h2>Popular Discussions</h2>
+        {/* List some discussions here */}
+      </section>
+      <section className="cta">
+        <h2>Ready to dive in?</h2>
+        <p>
+          Join our community and start engaging in meaningful conversations today.
+        </p>
+        <button>Sign Up</button>
+      </section>
     </div>
   );
 };
-
-// const CommunitiesSection = () => (
-//   <section className="communities">
-//     <h2>Explore Our Communities</h2>
-//     {/* List some communities here */}
-//   </section>
-// );
-
-// const PopularDiscussionsSection = () => (
-//   <section className="popular-discussions">
-//     <h2>Popular Discussions</h2>
-//     {/* List some discussions here */}
-//   </section>
-// );
-
-// const CallToActionSection = () => (
-//   <section className="cta">
-//     <h2>Ready to dive in?</h2>
-//     <p>
-//       Join our community and start engaging in meaningful conversations today.
-//     </p>
-//     <button>Sign Up</button>
-//   </section>
-// );
-
 
 export default HomePage;
