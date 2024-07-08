@@ -1,6 +1,8 @@
 import { authApi } from "../api/authApi";
 import { createSlice } from "@reduxjs/toolkit";
 import { usersApi } from "../api/usersApi";
+
+// authSlice
 const authSlice = createSlice({
   name: "authSlice",
   initialState: {
@@ -11,7 +13,6 @@ const authSlice = createSlice({
       ? JSON.parse(window.sessionStorage.getItem("USER")).token
       : null,
   },
-
   reducers: {
     setToken: (state, action) => {
       state.token = action.payload;
